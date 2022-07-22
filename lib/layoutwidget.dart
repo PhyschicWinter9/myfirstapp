@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class layoutWidget extends StatelessWidget {
   const layoutWidget({Key? key}) : super(key: key);
@@ -10,33 +11,56 @@ class layoutWidget extends StatelessWidget {
         title: Text('Container'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 300,
-            height: 300,
-            color: Color.fromARGB(255, 48, 99, 142),
-            child: const Center(
-              child: Text(
-                'Container',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
+            width: 350,
+            height: 350,
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.blue,
+            ),
+            child: Image.asset(
+              'images/patrick.jpg',
+              width: 250,
+              height: 250,
+              fit: BoxFit.cover,
             ),
           ),
-          Container(
-            width: 200,
-            height: 200,
-            color: Colors.red,
+          ClipRRect(
+            //ClipRRect คือคลาสที่จะทำการตัดรูปร่างของรูปที่มีขนาดเส้นรอบกว้างหรือความสูงมากกว่าที่กำหนด
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset(
+              'images/patrick.jpg',
+              width: 100,
+              height: 100,
+            ),
           ),
-          Container(
-            width: 100,
-            height: 100,
-            color: Colors.yellow,
+          Icon(
+            Icons.sports_esports,
+            size: 50,
+            color: Colors.blue,
           ),
+          Text(
+            'Welcome to RELAXSMP',
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'Kanit'),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Click Me'),
+            style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                padding: EdgeInsets.all(
+                    10), //EdgeInsets.all(10) คือการกำหนดขอบของปุ่ม,EdgeInset.symmetric คือ กำหนดขอบบนล่างของปุ่ม
+                textStyle: TextStyle(fontFamily: 'Kanit', fontSize: 20)),
+          )
         ],
       ),
     );
